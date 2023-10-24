@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <!-- 
+     * object-src 'none';
+     script-src 'nonce-{random}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;
+     base-uri 'none';
+     report-uri https://your-report-collector.example.com/
+     -->
+    <title>Ping Oidc Client SDK</title>
+    <script type="module" src="./ping-oidc.js"></script>
+    <script type="text/javascript" src="./stuff.js"></script>
+    
+  </head>
+  <body onload='initializeOidc();'>
+            <h2 class="card-title">
+              Ping Demo OIDC Client SDK
+            </h2>
+            <p>
+              This page contains:
+            <ul>
+              <li>Button to do ping oidc client initialization</li>
+              <li>button to do ping oidc client authorization</li>
+            </ul>
+            
+            </p>
+            <form name="profile_form">
+              <p>===========================</p>
+            <p></p>
+            <button  id="authorize" onclick="authorize">
+              authorize
+            </button>
+            <button  id="getAuthorizeUrl" onclick="doGetUrl();">
+              getUrl
+            </button>
+            <button  id="gotourl" onclick='window.location.assign("https://pingidentity.com/?stuff=much");'>
+              In-line assign
+            </button>
+            <button  id="assign" onclick='assign();'>
+              assign in script
+            </button>
+            <button  id="gotourl" onclick='assignViaHref();'>
+              assign via href
+            </button>
+            <button  id="gotourl" onclick='assignViaReplace();'>
+              assign via replace
+            </button>
+            <button  id="gotourl" onclick='assignViaPathname();'>
+              assign via pathname
+            </button>
+            <a href="https://pingidentity.com/?stuff=much">pingidentity.com</a>
+            <p>==============================</p>
+          </form>
+
+
+      </body>
+</html>

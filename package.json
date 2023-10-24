@@ -1,0 +1,30 @@
+{
+  "name": "demo-signal-payload",
+  "version": "0.1.0",
+  "description": "Simple demo of PingOne Risk Signal SDK using Fastify",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.9.0",
+    "btoa": "^1.2.1",
+    "fastify": "^4.15.0",
+    "got": "^11.8.6",
+    "handlebars": "^4.7.7",
+    "path": "^0.12.7",
+    "fs": ""
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "url": ""
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch"
+  ]
+}
