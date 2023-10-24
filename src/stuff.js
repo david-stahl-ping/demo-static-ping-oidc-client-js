@@ -1,23 +1,30 @@
-async function doAuthorize() {
-    await ping_oidc_client.authorize("sarah");
+  // asynchrouse method that calls the ping-oidc-client authorize call - which redirects to the 
+  // OAuth url
+
+  async function doAuthorize() {
+    await ping_oidc_client.authorize("grey");
     
   }
+
+  // asynchrouse method that calls the ping-oidc-client method that constructs the OAuth AS url 
+
   var authorizeUrl;
   async function doGetUrl() {
-    authorizeUrl= await ping_oidc_client.authorizeUrl("sarah")
+    authorizeUrl= await ping_oidc_client.authorizeUrl("grey");
     console.log("authorizeUrl:"+authorizeUrl);
     alert("url ="+authorizeUrl);
   }   
   
   
   var ping_oidc_client = null;
-   async function initializeOidc(clientOptions) {
+  // method that initializes the OAuth client with details about oauth server, oauth client
+   async function initializeOidc(oauthASUrl,clientOptions) {
 
    
     /**
      * Dynamically fetches your OAuth authorization servers endpoints from the spec-defied .well-known endpoint.
      */
-    ping_oidc_client = await pingOidc.OidcClient.initializeFromOpenIdConfig('https://auth.pingone.com/f5e3bd6b-8b61-4af0-82fa-e1312a15ee61/as/', clientOptions);
+    ping_oidc_client = await pingOidc.OidcClient.initializeFromOpenIdConfig(oauthASUrl, clientOptions);
   
                 
   };

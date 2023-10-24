@@ -18,7 +18,9 @@
       storageType: 'session', // 'local' | 'session' | 'worker'. defaults to 'local'. Also falls back to 'local' for backwards compatibility when choosing 'worker' and the Worker object is not present.
       // customParams: { param1: 'value1', param2: 'value2' } // will append custom parameters to the authorization url.  Expects an object with string key/values.
     }; // client options object with configuration needed to initialize ping-oidc-client   
-   
+
+    // url that points to a PingOne environment 
+     const oauthASUrl = 'https://auth.pingone.com/f5e3bd6b-8b61-4af0-82fa-e1312a15ee61/as/';
 
     </script>
   </head>
@@ -35,6 +37,7 @@
                 <li> OAuth Client: 482b146c-8620-4076-b355-92c70d9002ff</li>
                 <li> Application Name: localhost.3001.demo.html</li>
                 <li> Redirect URI: https://localhost:3001/demo.html </li>
+                <li> OAuth AS urlL: https://auth.pingone.com/f5e3bd6b-8b61-4af0-82fa-e1312a15ee61/as/ </li>
               </ul>
               <p>The environment SSO Only has one username: grey / trustMyself4$</p>
               <p>Below are buttons that: </p>
@@ -44,14 +47,17 @@
               <li>button to do ping oidc client authorization</li>
             </ul>
             <p>
-              After doing the authorization a token will be saved in the session storage. 
+             To rerun - clear the url parameters and the local session token
+            </p>
+            <p>
+              Your authentication experience will depend on your Authentication Policy used for your client.
             </p>
             <p>Clear session storage to rerun.  </p>
             </p>
                 <p>===========================</p>
             <p></p>
            
-            <button  id="initialize" onclick='initializeOidc(clientOptions);'>
+            <button  id="initialize" onclick='initializeOidc(oauthASUrl,clientOptions);'>
               do initialize
             </button>
             <p><br/>---------------<br/></p> 
