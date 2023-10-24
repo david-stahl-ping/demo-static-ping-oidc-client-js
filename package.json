@@ -1,7 +1,7 @@
 {
   "name": "demo-signal-payload",
   "version": "0.1.0",
-  "description": "Simple demo of PingOne Risk Signal SDK using Fastify",
+  "description": "Simple demo https site that uses ping-oidc-client sdk javascript. Depends on fastify,node,fs",
   "main": "script.js",
   "scripts": {
     "start": "node script.js"
@@ -22,9 +22,10 @@
   "repository": {
     "url": ""
   },
-  "license": "MIT",
+  "license": "LGPL-3.0-or-later",
   "keywords": [
     "node",
-    "glitch"
+    "fastify",
+    "pingidentity"
   ]
 }

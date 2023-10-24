@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <!-- 
-     * object-src 'none';
-     script-src 'nonce-{random}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;
-     base-uri 'none';
-     report-uri https://your-report-collector.example.com/
-     -->
-    <title>Ping Oidc Client SDK</title>
+     
+    <title>demo.html - ping-oidc-client sdk using static JS file</title>
     <script type="module" src="./ping-oidc.js"></script>
     <script type="text/javascript" src="./stuff.js"></script>
     
   </head>
   <body onload='initializeOidc();'>
             <h2 class="card-title">
-              Ping Demo OIDC Client SDK
+              Demo ping-oidc-client JavaScript 
             </h2>
             <p>
-              This page contains:
+              This page demos the OAuth client javascript.  It relies on a demo PingOne SSO environment that has an OIDC client application.
+              <ul>
+                <li> Org: </li>
+                <li> EnvId: </li>
+                <li> OAuth Client: </li>
+                <li> Return URI: </li>
+              </ul>
+              <p>Below are buttons that: </p>
             <ul>
               <li>Button to do ping oidc client initialization</li>
+              <li>button to do get the OAuth URL that will initation an Authentication Code flow</li>
               <li>button to do ping oidc client authorization</li>
             </ul>
             
@@ -27,29 +30,17 @@
             <form name="profile_form">
               <p>===========================</p>
             <p></p>
-            <button  id="authorize" onclick="authorize">
-              authorize
-            </button>
+            <button  id="authorize" onclick="doAuthorize();">
+              do authorize
+            </button><p><br/>--------------<br/></p>
             <button  id="getAuthorizeUrl" onclick="doGetUrl();">
-              getUrl
+              do geturl
+            </button><p><br/>---------------<br/></p>
+            <button  id="initialize" onclick='doInitialize();'>
+              do initialize
             </button>
-            <button  id="gotourl" onclick='window.location.assign("https://pingidentity.com/?stuff=much");'>
-              In-line assign
-            </button>
-            <button  id="assign" onclick='assign();'>
-              assign in script
-            </button>
-            <button  id="gotourl" onclick='assignViaHref();'>
-              assign via href
-            </button>
-            <button  id="gotourl" onclick='assignViaReplace();'>
-              assign via replace
-            </button>
-            <button  id="gotourl" onclick='assignViaPathname();'>
-              assign via pathname
-            </button>
-            <a href="https://pingidentity.com/?stuff=much">pingidentity.com</a>
-            <p>==============================</p>
+            
+             <p>==============================</p>
           </form>
 
 

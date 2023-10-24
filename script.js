@@ -1,7 +1,3 @@
-/*
-This is your site JavaScript code - you can add interactivity and carry out processing
-- Initially the JS writes a message to the console, and moves a button you can add from the README
-*/
 
 /**
  * This is the main Node.js server script for your project
@@ -24,7 +20,7 @@ const fastify = require("fastify")({
 
 // Setup our static files
 fastify.register(require("@fastify/static"), {
-  root: path.join(__dirname, "public"),
+  root: path.join(__dirname, "src"),
   prefix: "/", // optional: default '/'
   setHeaders: (res, pathName) => {
      res.setHeader("Access-Control-Allow-Headers", "*");
@@ -36,16 +32,13 @@ fastify.register(require("@fastify/static"), {
   },
 });
 
-// Formbody lets us parse incoming forms
-fastify.register(require("@fastify/formbody"));
-
 
 
 
 
 // Print a message in the browser's dev tools console each time the page loads
 // Use your menus or right-click / control-click and choose "Inspect" > "Console"
-console.log("Started Simple HTML page showing Signal 5.2.3 JavaScript initialization");
+console.log("Started Simple HTML page that initializes and uses ping-oidc-client-sdk static js");
 
 
 
