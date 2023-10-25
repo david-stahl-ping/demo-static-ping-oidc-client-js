@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <title>demo.html - ping-oidc-client sdk using static JS file</title>
+    <script type="module" src="./ping-oidc.js"></script>
+    <script type="text/javascript" src="./stuff.js"></script>
+    <script>
+
+    const clientOptions = {
+      client_id: '482b146c-8620-4076-b355-92c70d9002ff',  // id of an oidc application in PingOne SSO
+      redirect_uri: 'https://localhost:3001/demo.html', // URL to return (must match return uri in above oidc application)
+      scope: 'openid email', // defaults to 'openid profile email'
+      response_type: 'code', // defaults to 'code' other option is token
+      usePkce: false, // defaults to true
+      state: 'xyz', // will apply a random state as a string, you can pass in a string or object
+      logLevel: 'debug', // defaults to 'warn'
+      storageType: 'session', // 'local' | 'session' | 'worker'. defaults to 'local'. Also falls back to 'local' for backwards compatibility when choosing 'worker' and the Worker object is not present.
+      // customParams: { param1: 'value1', param2: 'value2' } // will append custom parameters to the authorization url.  Expects an object with string key/values.
+    }; // client options object with configuration needed to initialize ping-oidc-client   
+
+    // url that points to a PingOne environment 
+     const oauthASUrl = 'https://auth.pingone.com/f5e3bd6b-8b61-4af0-82fa-e1312a15ee61/as/';
+
+    </script>
+  </head>
+  <body onload="doAllSteps();">
+            <h2 class="card-title">
+              Demo ping-oidc-client JavaScript 
+            </h2>
+            <p>
+              This page demos the OAuth client javascript.  It relies on a demo PingOne SSO environment that has an OIDC client application.
+              <ul>
+                <li> Org: d0676a61-8b17-4cf8-b9b9-716135f66fe8 </li>
+                <li> EnvId: f5e3bd6b-8b61-4af0-82fa-e1312a15ee61</li>
+                <li> EnvName: SSO Only</li>
+                <li> OAuth Client: 482b146c-8620-4076-b355-92c70d9002ff</li>
+                <li> Application Name: localhost.3001.demo.html</li>
+                <li> Redirect URI: https://localhost:3001/demo.html </li>
+                <li> OAuth AS urlL: https://auth.pingone.com/f5e3bd6b-8b61-4af0-82fa-e1312a15ee61/as/ </li>
+              </ul>
+              <p>The environment SSO Only has one username: grey / trustMyself4$</p>
+              <p>Below are buttons that: </p>
+            <ul>
+              <li>Button to do ping oidc client initialization</li>
+              <li>button to do get the OAuth URL that will initation an Authentication Code flow</li>
+              <li>button to do ping oidc client authorization</li>
+            </ul>
+            <p>
+             To rerun - clear the url parameters and the local session token
+            </p>
+            <p>
+              Your authentication experience will depend on your Authentication Policy used for your client.
+            </p>
+            <p>Clear session storage to rerun.  </p>
+            </p>
+                <p>===========================</p>
+            <p></p>
+           
+            <button  id="initialize" onclick='initializeOidc(oauthASUrl,clientOptions);'>
+              do initialize
+            </button>
+            <p><br/>---------------<br/></p> 
+            <button  id="getAuthorizeUrl" onclick="doGetUrl();">
+              do geturl
+            </button>
+            <p><br/>--------------<br/></p>
+            <button  id="authorize" onclick="doAuthorize();">
+              do authorize
+            </button>
+             <p>==============================</p>
+          
+
+      </body>
+</html>

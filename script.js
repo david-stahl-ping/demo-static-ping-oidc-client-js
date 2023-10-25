@@ -23,12 +23,12 @@ fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "src"),
   prefix: "/", // optional: default '/'
   setHeaders: (res, pathName) => {
-     res.setHeader("Access-Control-Allow-Headers", "*");
-     res.setHeader("Access-Control-Allow-Methods", "*");
-     res.setHeader("Access-Control-Allow-Origin", "*");
-     res.setHeader("Referrer-Policy","strict-origin-when-cross-origin");
-     res.setHeader("Vary","Accept-Encoding");
-     res.setHeader("Transfer-Encoding","Identity");
+    //  res.setHeader("Access-Control-Allow-Headers", "*");
+    //  res.setHeader("Access-Control-Allow-Methods", "*");
+    //  res.setHeader("Access-Control-Allow-Origin", "*");
+    //  res.setHeader("Referrer-Policy","strict-origin-when-cross-origin");
+    //  res.setHeader("Vary","Accept-Encoding");
+    //  res.setHeader("Transfer-Encoding","Identity");
   },
 });
 
